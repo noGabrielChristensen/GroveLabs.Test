@@ -1,7 +1,7 @@
 body {
-  background: #1a1a1a;
-  color: #ff6600;
-  font-family: "Courier New", monospace;
+  background: #121212; /* dark background */
+  color: #f1f1f1; /* light font for readability */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
   margin: 0;
   padding: 0;
@@ -9,32 +9,31 @@ body {
 
 .container {
   margin-top: 10vh;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-h1.glitch {
+h1 {
   font-size: 3em;
-  text-shadow: 0 0 5px #ff6600, 0 0 10px #ff6600;
-  animation: glitch 1s infinite;
-}
-
-@keyframes glitch {
-  0% { text-shadow: 0 0 5px #ff6600; }
-  50% { text-shadow: 2px 0 10px #ff6600, -2px 0 10px #ff6600; }
-  100% { text-shadow: 0 0 5px #ff6600; }
+  color: #ff9500; /* subtle accent for headers */
 }
 
 .subtitle {
   font-size: 1.2em;
   margin-bottom: 20px;
+  color: #ccc;
 }
 
 .form input, .form button, #guestButton, #adminsWall, .x-button {
   display: block;
-  margin: 5px auto;
+  width: 80%;
+  margin: 8px auto;
   padding: 10px;
-  border: 1px solid #ff6600;
-  background: #1a1a1a;
-  color: #ff6600;
+  border-radius: 5px;
+  border: 1px solid #ff9500;
+  background: #1f1f1f;
+  color: #f1f1f1;
   font-family: inherit;
   cursor: pointer;
 }
@@ -48,4 +47,6 @@ h1.glitch {
   top: 10px;
   right: 10px;
   padding: 5px 10px;
+  background: #1f1f1f;
+  border: 1px solid #ff9500;
 }
