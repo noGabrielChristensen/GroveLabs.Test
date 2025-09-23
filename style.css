@@ -1,85 +1,14 @@
-body {
-  background: #111; /* dark gray */
-  color: #ff6600;   /* orange */
-  font-family: "Courier New", monospace;
-  text-align: center;
-  margin: 0;
-  padding: 0;
-}
-
-.container {
-  margin-top: 10vh;
-}
-
-h1.glitch {
-  font-size: 3em;
-  text-shadow: 0 0 5px #ff6600, 0 0 10px #ff6600;
-  animation: glitch 1s infinite;
-}
-
-@keyframes glitch {
-  0% { text-shadow: 0 0 5px #ff6600; }
-  50% { text-shadow: 2px 0 10px #ff6600, -2px 0 10px #ff6600; }
-  100% { text-shadow: 0 0 5px #ff6600; }
-}
-
-.subtitle {
-  font-size: 1.2em;
-  margin-bottom: 20px;
-}
-
-.form {
-  margin: 20px auto;
-  max-width: 250px;
-}
-
-.form input, .form button {
-  display: block;
-  width: 100%;
-  margin: 8px 0;
+textarea {
+  width: 80%;
+  height: 100px;
+  background: #111;
+  border: 1px solid #ff6600;
+  color: #ff6600;
+  font-family: inherit;
+  margin: 10px 0;
   padding: 10px;
-  border: 1px solid #ff6600;
-  background: #111;
-  color: #ff6600;
-  font-family: inherit;
 }
 
-.form button {
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.form button:hover {
-  background: #ff6600;
-  color: #111;
-}
-
-.secondary-btn {
+.nav {
   margin-top: 20px;
-  padding: 10px 20px;
-  border: 1px solid #ff6600;
-  background: #111;
-  color: #ff6600;
-  cursor: pointer;
-}
-
-.secondary-btn:hover {
-  background: #ff6600;
-  color: #111;
-}
-
-#adminButton {
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  background: #111;
-  border: 1px solid #ff6600;
-  color: #ff6600;
-  font-family: inherit;
-  padding: 5px 10px;
-  cursor: pointer;
-}
-
-.admin-hidden {
-  display: none;
 }
