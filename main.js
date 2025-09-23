@@ -1,5 +1,4 @@
-// Sacred admin password
-const ADMIN_PASSWORD = "GroveFire"; // change to your secret
+const ADMIN_PASSWORD = "GroveFire";
 
 document.getElementById("adminBtn").addEventListener("click", () => {
     let pass = prompt("Enter Admin Password:");
@@ -9,6 +8,11 @@ document.getElementById("adminBtn").addEventListener("click", () => {
     } else {
         alert("Incorrect password");
     }
+});
+
+document.getElementById("memberBtn").addEventListener("click", () => {
+    localStorage.setItem("userRole", "member");
+    window.location.href = "home.html";
 });
 
 document.getElementById("guestBtn").addEventListener("click", () => {
