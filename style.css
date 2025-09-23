@@ -1,0 +1,59 @@
+body {
+  background: black;
+  color: #00ff00;
+  font-family: "Courier New", monospace;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  margin-top: 10vh;
+}
+
+h1.glitch {
+  font-size: 3em;
+  text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+  animation: glitch 1s infinite;
+}
+
+@keyframes glitch {
+  0% { text-shadow: 0 0 5px #00ff00; }
+  50% { text-shadow: 2px 0 10px #00ff00, -2px 0 10px #00ff00; }
+  100% { text-shadow: 0 0 5px #00ff00; }
+}
+
+.subtitle {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.form input, .form button {
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+  border: 1px solid #00ff00;
+  background: black;
+  color: #00ff00;
+  font-family: inherit;
+}
+
+.form button {
+  cursor: pointer;
+}
+
+.admin-hidden {
+  display: none;
+}
+
+#adminButton {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background: black;
+  border: 1px solid #00ff00;
+  color: #00ff00;
+  font-family: inherit;
+  padding: 5px 10px;
+  cursor: pointer;
+}
