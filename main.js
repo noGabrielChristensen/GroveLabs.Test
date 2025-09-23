@@ -6,6 +6,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const adminsWall = document.getElementById("adminsWall");
   const logoutButton = document.getElementById("logoutButton");
 
+  const profileUsername = document.getElementById("profileUsername");
+  const bioInput = document.getElementById("bioInput");
+  const saveBio = document.getElementById("saveBio");
+  const bioDisplay = document.getElementById("bioDisplay");
+
   // Registration
   if (registerForm) {
     registerForm.addEventListener("submit", (e) => {
@@ -16,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (localStorage.getItem(username)) {
         alert("Username already exists!");
       } else {
-        localStorage.setItem(username, password);
+        localStorage.setItem(username, JSON.stringify({ password, bio: "" }));
         alert("Registration complete.");
       }
     });
@@ -29,14 +34,18 @@ document.addEventListener("DOMContentLoaded", () => {
       const username = document.getElementById("loginUsername").value;
       const password = document.getElementById("loginPassword").value;
 
-      const storedPassword = localStorage.getItem(username);
-
-      if (storedPassword && storedPassword === password) {
-        localStorage.setItem("currentUser", username);
-        localStorage.setItem("isAdmin", "false");
-        window.location.href = "newsfeed.html";
+      const userData = localStorage.getItem(username);
+      if (userData) {
+        const parsed = JSON.parse(userData);
+        if (parsed.password === password) {
+          localStorage.setItem("currentUser", username);
+          localStorage.setItem("isAdmin", "false");
+          window.location.href = "newsfeed.html";
+        } else {
+          alert("Invalid password.");
+        }
       } else {
-        alert("Invalid username or password.");
+        alert("User not found.");
       }
     });
   }
@@ -71,6 +80,31 @@ document.addEventListener("DOMContentLoaded", () => {
   if (adminsWall) {
     if (localStorage.getItem("isAdmin") === "true") {
       adminsWall.classList.remove("admin-hidden");
+    }
+  }
+
+  // Profile page
+  if (profileUsername) {
+    const currentUser = localStorage.getItem("currentUser");
+    profileUsername.textContent = `Logged in as: ${currentUser}`;
+
+    if (currentUser && currentUser !== "Guest" && currentUser !== "Admin") {
+      const userData = JSON.parse(localStorage.getItem(currentUser));
+      if (userData.bio) {
+        bioDisplay.textContent = userData.bio;
+      }
+
+      saveBio.addEventListener("click", () => {
+        const newBio = bioInput.value;
+        userData.bio = newBio;
+        localStorage.setItem(currentUser, JSON.stringify(userData));
+        bioDisplay.textContent = newBio;
+        bioInput.value = "";
+      });
+    } else {
+      bioInput.style.display = "none";
+      saveBio.style.display = "none";
+      bioDisplay.textContent = "Guests/Admins do not have bios.";
     }
   }
 
