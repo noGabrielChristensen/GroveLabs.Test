@@ -1,58 +1,46 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const adminBtn = document.getElementById("adminBtn");
-  const guestBtn = document.getElementById("guestBtn");
-  const adminPanel = document.getElementById("adminPanel");
-  const guestPanel = document.getElementById("guestPanel");
-  const closeBtns = document.querySelectorAll(".close-btn");
-  const adminLoginForm = document.getElementById("adminLoginForm");
-  const adminWallBtn = document.getElementById("adminWallBtn");
-  const adminError = document.getElementById("adminError");
+  const registerForm = document.getElementById("registerForm");
+  const adminButton = document.getElementById("adminButton");
+  const guestButton = document.getElementById("guestButton");
+  const adminsWallButtons = document.querySelectorAll("#adminsWall");
 
-  // Admin button open modal
-  if (adminBtn) {
-    adminBtn.addEventListener("click", () => {
-      adminPanel.style.display = "block";
-    });
-  }
-
-  // Guest button open modal
-  if (guestBtn) {
-    guestBtn.addEventListener("click", () => {
-      guestPanel.style.display = "block";
-    });
-  }
-
-  // Close modals
-  closeBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-      btn.parentElement.parentElement.style.display = "none";
-    });
-  });
-
-  // Close if clicked outside
-  window.addEventListener("click", (e) => {
-    if (e.target.classList.contains("modal")) {
-      e.target.style.display = "none";
-    }
-  });
-
-  // Admin Login validation
-  if (adminLoginForm) {
-    adminLoginForm.addEventListener("submit", (e) => {
+  // Registration (demo only)
+  if (registerForm) {
+    registerForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      const user = document.getElementById("adminUser").value.trim();
-      const pass = document.getElementById("adminPass").value.trim();
+      alert("Registration complete. (Demo only)");
+      window.location.href = "news.html";
+    });
+  }
 
-      if (user === "admin" && pass === "ES@261001117") {
-        adminPanel.style.display = "none";
-        adminWallBtn.classList.remove("hidden");
-        alert("Welcome, Admin. The Wall has been unlocked.");
+  // Guest button access
+  if (guestButton) {
+    guestButton.addEventListener("click", () => {
+      localStorage.removeItem("isAdmin");
+      window.location.href = "news.html";
+    });
+  }
+
+  // Admin login
+  if (adminButton) {
+    adminButton.addEventListener("click", () => {
+      const password = prompt("Enter Admin Password:");
+      if (password === "ES@261001117") {
+        alert("Access Granted.");
+        localStorage.setItem("isAdmin", "true");
+        // Show Admin’s Wall only for admin
+        adminsWallButtons.forEach(btn => btn.classList.remove("admin-hidden"));
+        window.location.href = "news.html";
       } else {
-        adminError.textContent = "Incorrect username or password.";
-        setTimeout(() => {
-          location.reload(); // refresh to hide button
-        }, 1200);
+        alert("Incorrect Password.");
+        localStorage.removeItem("isAdmin");
+        window.location.reload();
       }
     });
+  }
+
+  // Show Admin’s Wall if logged in as Admin
+  if (localStorage.getItem("isAdmin") === "true") {
+    adminsWallButtons.forEach(btn => btn.classList.remove("admin-hidden"));
   }
 });
