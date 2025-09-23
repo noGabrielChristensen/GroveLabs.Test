@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Guest button access
+  // Guest access
   if (guestButton) {
     guestButton.addEventListener("click", () => {
       localStorage.removeItem("isAdmin");
@@ -28,7 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
       if (password === "ES@261001117") {
         alert("Access Granted.");
         localStorage.setItem("isAdmin", "true");
-        // Show Admin’s Wall only for admin
         adminsWallButtons.forEach(btn => btn.classList.remove("admin-hidden"));
         window.location.href = "news.html";
       } else {
@@ -39,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Show Admin’s Wall if logged in as Admin
+  // Show Admin’s Wall button if logged in as Admin
   if (localStorage.getItem("isAdmin") === "true") {
     adminsWallButtons.forEach(btn => btn.classList.remove("admin-hidden"));
   }
