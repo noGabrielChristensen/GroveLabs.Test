@@ -6,21 +6,55 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Welcome to Grove Portal</h1>
-    
+    <h1>Grove Portal</h1>
+
+    <!-- Admin Wall -->
     <div id="adminWallBtnContainer" style="display:none;">
         <button id="adminWallBtn">Admin Wall</button>
     </div>
 
+    <!-- Member Post Creation -->
+    <div id="memberPostContainer" style="display:none;">
+        <textarea id="newPostText" placeholder="Share to your news feed"></textarea>
+        <button onclick="createPost()">Post</button>
+    </div>
+
+    <!-- Guest Preview -->
+    <div id="guestPreview" style="display:none;">
+        <p>Welcome Guest. Join to post, follow, and stream.</p>
+    </div>
+
+    <!-- Navigation -->
+    <div>
+        <button onclick="window.location.href='profile.html'">Profile</button>
+        <button onclick="window.location.href='news.html'">News Feed</button>
+        <button onclick="openStream()">Live Stream</button>
+        <button onclick="logout()">Logout</button>
+    </div>
+
+    <script src="news.js"></script>
+    <script src="profile.js"></script>
+    <script src="stream.js"></script>
     <script>
         const role = localStorage.getItem("userRole");
+
         if(role === "admin") {
             document.getElementById("adminWallBtnContainer").style.display = "block";
+            document.getElementById("memberPostContainer").style.display = "block";
+        } else if(role === "member") {
+            document.getElementById("memberPostContainer").style.display = "block";
+        } else {
+            document.getElementById("guestPreview").style.display = "block";
         }
 
         document.getElementById("adminWallBtn")?.addEventListener("click", () => {
-            window.location.href = "admin.html"; // sacred admin space
+            window.location.href = "admin.html";
         });
+
+        function logout() {
+            localStorage.removeItem("userRole");
+            window.location.href = "index.html";
+        }
     </script>
 </body>
 </html>
