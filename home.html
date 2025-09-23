@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grove Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Welcome to Grove Portal</h1>
+    
+    <div id="adminWallBtnContainer" style="display:none;">
+        <button id="adminWallBtn">Admin Wall</button>
+    </div>
+
+    <script>
+        const role = localStorage.getItem("userRole");
+        if(role === "admin") {
+            document.getElementById("adminWallBtnContainer").style.display = "block";
+        }
+
+        document.getElementById("adminWallBtn")?.addEventListener("click", () => {
+            window.location.href = "admin.html"; // sacred admin space
+        });
+    </script>
+</body>
+</html>
