@@ -1,28 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>GroveLabs | Profile</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="main.js" defer></script>
+    <meta charset="UTF-8">
+    <title>Grove Profile</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1 class="glitch">Your Profile</h1>
-    <p id="profileUsername"></p>
-
-    <!-- Editable bio -->
-    <textarea id="bioInput" placeholder="Write your bio here..."></textarea>
-    <button id="saveBio" class="secondary-btn">Save Bio</button>
-
-    <!-- Displayed bio -->
-    <h3>Bio:</h3>
-    <p id="bioDisplay"></p>
-
-    <div class="nav">
-      <button onclick="window.location.href='newsfeed.html'" class="secondary-btn">Back to Feed</button>
-      <button id="logoutButton" class="secondary-btn">Logout</button>
+    <h1>Your Profile</h1>
+    <div>
+        <img id="profilePic" src="" alt="Profile Picture" width="150">
+        <input type="file" onchange="updateProfilePicture('profileInput','profilePic')" id="profileInput">
     </div>
-  </div>
+    <div>
+        <img id="coverPhoto" src="" alt="Cover Photo" width="300">
+        <input type="file" onchange="updateCoverPhoto('coverInput','coverPhoto')" id="coverInput">
+    </div>
+    <button onclick="window.location.href='home.html'">Back Home</button>
+    <script src="profile.js"></script>
 </body>
 </html>
