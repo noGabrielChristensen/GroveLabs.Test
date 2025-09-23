@@ -2,24 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>GroveLabs | Welcome</title>
+  <title>GroveLabs</title>
   <link rel="stylesheet" href="style.css">
   <script src="main.js" defer></script>
 </head>
 <body>
+  <div class="matrix-bg"></div>
   <div class="container">
-    <h1 class="glitch">GroveLabs</h1>
-    <p class="subtitle">Enter the Network</p>
+    <h1 class="glitch" data-text="GroveLabs">GroveLabs</h1>
 
-    <!-- Registration Form -->
-    <form id="registerForm" class="form">
-      <input type="text" placeholder="Username" required>
-      <input type="password" placeholder="Password" required>
-      <button type="submit">Register</button>
-    </form>
-
-    <!-- Hidden Admin Button -->
-    <button id="adminButton" class="admin-hidden">X</button>
+    <div class="login-buttons">
+      <a href="newsfeed.html" class="btn">Guest Login</a>
+      <a href="register.html" class="btn">Register</a>
+    </div>
   </div>
+
+  <!-- Hidden Admin Login Button -->
+  <button id="admin-login" class="admin-btn">X</button>
 </body>
 </html>
