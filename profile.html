@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GroveLabs | Profile</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <h1 class="glitch">Your Profile</h1>
+    <p id="profileUsername"></p>
+
+    <!-- Editable bio -->
+    <textarea id="bioInput" placeholder="Write your bio here..."></textarea>
+    <button id="saveBio" class="secondary-btn">Save Bio</button>
+
+    <!-- Displayed bio -->
+    <h3>Bio:</h3>
+    <p id="bioDisplay"></p>
+
+    <div class="nav">
+      <button onclick="window.location.href='newsfeed.html'" class="secondary-btn">Back to Feed</button>
+      <button id="logoutButton" class="secondary-btn">Logout</button>
+    </div>
+  </div>
+</body>
+</html>
