@@ -1,45 +1,17 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const registerForm = document.getElementById("registerForm");
-  const adminButton = document.getElementById("adminButton");
-  const guestButton = document.getElementById("guestButton");
-  const adminsWallButtons = document.querySelectorAll("#adminsWall");
+// Sacred admin password
+const ADMIN_PASSWORD = "GroveFire"; // change to your secret
 
-  // Registration (demo only)
-  if (registerForm) {
-    registerForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      alert("Registration complete. (Demo only)");
-      window.location.href = "news.html";
-    });
-  }
+document.getElementById("adminBtn").addEventListener("click", () => {
+    let pass = prompt("Enter Admin Password:");
+    if(pass === ADMIN_PASSWORD) {
+        localStorage.setItem("userRole", "admin");
+        window.location.href = "home.html";
+    } else {
+        alert("Incorrect password");
+    }
+});
 
-  // Guest access
-  if (guestButton) {
-    guestButton.addEventListener("click", () => {
-      localStorage.removeItem("isAdmin");
-      window.location.href = "news.html";
-    });
-  }
-
-  // Admin login
-  if (adminButton) {
-    adminButton.addEventListener("click", () => {
-      const password = prompt("Enter Admin Password:");
-      if (password === "ES@261001117") {
-        alert("Access Granted.");
-        localStorage.setItem("isAdmin", "true");
-        adminsWallButtons.forEach(btn => btn.classList.remove("admin-hidden"));
-        window.location.href = "news.html";
-      } else {
-        alert("Incorrect Password.");
-        localStorage.removeItem("isAdmin");
-        window.location.reload();
-      }
-    });
-  }
-
-  // Show Admin’s Wall button if logged in as Admin
-  if (localStorage.getItem("isAdmin") === "true") {
-    adminsWallButtons.forEach(btn => btn.classList.remove("admin-hidden"));
-  }
+document.getElementById("guestBtn").addEventListener("click", () => {
+    localStorage.setItem("userRole", "guest");
+    window.location.href = "home.html";
 });
