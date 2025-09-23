@@ -1,52 +1,25 @@
+/* ==================== Global Styles ==================== */
 body {
-  background: #121212; /* dark background */
-  color: #f1f1f1; /* light font for readability */
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  text-align: center;
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
+    background-color: #111; /* black/dark gray */
+    color: #ff6600;         /* orange font */
+    font-family: Arial, sans-serif;
+    text-align: center;
+    min-height: 100vh;
 }
 
-.container {
-  margin-top: 10vh;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+a, button {
+    color: #ff6600;
+    text-decoration: none;
+    background: none;
+    border: 1px solid #ff6600;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 18px;
 }
 
-h1 {
-  font-size: 3em;
-  color: #ff9500; /* subtle accent for headers */
-}
-
-.subtitle {
-  font-size: 1.2em;
-  margin-bottom: 20px;
-  color: #ccc;
-}
-
-.form input, .form button, #guestButton, #adminsWall, .x-button {
-  display: block;
-  width: 80%;
-  margin: 8px auto;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ff9500;
-  background: #1f1f1f;
-  color: #f1f1f1;
-  font-family: inherit;
-  cursor: pointer;
-}
-
-.admin-hidden {
-  display: none;
-}
-
-.x-button {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  padding: 5px 10px;
-  background: #1f1f1f;
-  border: 1px solid #ff9500;
+a:hover, button:hover {
+    opacity: 0.8;
 }
