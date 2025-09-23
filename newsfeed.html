@@ -2,22 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>News Feed - GroveLabs</title>
+  <title>GroveLabs | News Feed</title>
   <link rel="stylesheet" href="style.css">
   <script src="main.js" defer></script>
 </head>
 <body>
-  <div class="matrix-bg"></div>
   <div class="container">
-    <h1 class="glitch" data-text="News Feed">News Feed</h1>
-    <p class="subtitle">Welcome to the Matrix feed.</p>
+    <h1 class="glitch">News Feed</h1>
+    <p>Welcome to the GroveLabs network feed.</p>
 
-    <!-- Admin-only Wall Button -->
-    <a href="admin.html" id="admin-wall" class="btn hidden">Admin Wall</a>
+    <!-- Admin Wall (only visible for Admins) -->
+    <button id="adminsWall" class="admin-hidden">Admin’s Wall</button>
 
-    <div class="feed">
-      <p class="placeholder">[ No posts yet. The system is initializing... ]</p>
-    </div>
+    <button id="logoutButton" class="secondary-btn">Logout</button>
   </div>
 </body>
 </html>
