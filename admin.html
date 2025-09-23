@@ -1,15 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>GroveLabs | Admin Wall</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="main.js" defer></script>
+    <meta charset="UTF-8">
+    <title>Grove Admin Wall</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Admin’s Wall</h1>
-    <p>Visible only to administrators.</p>
-  </div>
+    <h1>Admin Wall</h1>
+    
+    <button onclick="alert('Stream feature coming soon')">Live Stream</button>
+    <button onclick="alert('News editing coming soon')">Edit News</button>
+    <button onclick="alert('Profile management coming soon')">Manage Profiles</button>
+    <button onclick="logout()">Logout</button>
+
+    <script>
+        const role = localStorage.getItem("userRole");
+        if(role !== "admin") {
+            alert("Access Denied");
+            window.location.href = "index.html";
+        }
+
+        function logout() {
+            localStorage.removeItem("userRole");
+            window.location.href = "index.html";
+        }
+    </script>
 </body>
 </html>
